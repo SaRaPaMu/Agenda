@@ -213,6 +213,8 @@ public class Principal extends javax.swing.JFrame {
                 nifTextField.setText("");
                 nombreTextField.setText("");
                 telefonoTextField.setText("");
+                foto.setIcon(null);
+                foto.setText("FOTO CON RESOLUCION DE 215X238");
 
                 if (contactos.isEmpty()) {
                     cargarButton.setEnabled(true);
@@ -235,10 +237,11 @@ public class Principal extends javax.swing.JFrame {
             case BORRANDO:
                 fechaNacimientoTextField.setEditable(false);
                 nifTextField.setEditable(false);
-                nifTextField.setEnabled(true);
+                nifTextField.setEditable(false);
                 nombreTextField.setEditable(false);
                 telefonoTextField.setEditable(false);
                 tiposComboBox.setEnabled(false);
+                foto.setText("");
 
                 cargarButton.setEnabled(false);
                 guardarButton.setEnabled(false);
@@ -254,8 +257,7 @@ public class Principal extends javax.swing.JFrame {
                 break;
             case EDITANDO:
                 fechaNacimientoTextField.setEditable(true);
-                nifTextField.setEditable(false);
-                nifTextField.setEnabled(false);
+                nifTextField.setEditable(false);                
                 nombreTextField.setEditable(true);
                 telefonoTextField.setEditable(true);
                 tiposComboBox.setEnabled(true);
@@ -274,11 +276,11 @@ public class Principal extends javax.swing.JFrame {
                 break;
             case NAVEGANDO:
                 fechaNacimientoTextField.setEditable(false);
-                nifTextField.setEditable(false);
-                nifTextField.setEnabled(true);
+                nifTextField.setEditable(false);                
                 nombreTextField.setEditable(false);
                 telefonoTextField.setEditable(false);
                 tiposComboBox.setEnabled(false);
+                foto.setText("");
 
                 cargarButton.setEnabled(true);
                 guardarButton.setEnabled(true);
