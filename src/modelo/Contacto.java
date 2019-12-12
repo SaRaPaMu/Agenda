@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package modelo;
+
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,22 +16,28 @@ import javax.swing.ImageIcon;
  *
  * @author Castealo
  */
-public class Contacto implements Serializable{
+public class Contacto implements Serializable {
+
     private String NIF;
     private String nombre;
     private String telefono;
     private Date fechaNacimiento;
     private String tipo;
-    private ImageIcon foto; 
+    private ImageIcon foto;
     public static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    
-    public Contacto(String NIF, String nombre, String telefono, String fechaNacimiento, String tipo) throws ParseException{
+
+    public Contacto(String NIF, String nombre, String telefono, String fechaNacimiento, String tipo, ImageIcon foto) throws ParseException {
         sdf.setLenient(false);//valida fecha
         this.NIF = NIF;
         this.nombre = nombre;
         this.telefono = telefono;
         this.fechaNacimiento = sdf.parse(fechaNacimiento);
         this.tipo = tipo;
+        if (foto == null) {
+            this.foto = new ImageIcon("2Prueba.jpg");
+        } else {
+            this.foto = foto;
+        }
     }
 
     public ImageIcon getFoto() {
@@ -39,8 +46,8 @@ public class Contacto implements Serializable{
 
     public void setFoto(ImageIcon foto) {
         this.foto = foto;
-    }    
-    
+    }
+
     public String getNIF() {
         return NIF;
     }
@@ -106,5 +113,4 @@ public class Contacto implements Serializable{
         return true;
     }
 
-   
 }

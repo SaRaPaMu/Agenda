@@ -80,6 +80,7 @@ public class Principal extends javax.swing.JFrame {
         nifTextField.setText(contacto.getNIF());
         nombreTextField.setText(contacto.getNombre());
         telefonoTextField.setText(contacto.getTelefono());
+        foto.setIcon(contacto.getFoto());
         switch (contacto.getTipo()) {
             case "Amigo":
                 tiposComboBox.setSelectedIndex(0);
@@ -155,7 +156,7 @@ public class Principal extends javax.swing.JFrame {
         boolean correcto;
 
         try {
-            c = new Contacto(nifTextField.getText(), nombreTextField.getText(), telefonoTextField.getText(), fechaNacimientoTextField.getText(), (String) tiposComboBox.getSelectedItem());
+            c = new Contacto(nifTextField.getText(), nombreTextField.getText(), telefonoTextField.getText(), fechaNacimientoTextField.getText(), (String) tiposComboBox.getSelectedItem(), (ImageIcon) foto.getIcon());
             correcto = validarContacto(c);
 
         } catch (ParseException ex) {
@@ -179,7 +180,7 @@ public class Principal extends javax.swing.JFrame {
         Contacto c = null;
 
         try {
-            c = new Contacto(dao.getAllContacto().get(posicion).getNIF(), nombreTextField.getText(), telefonoTextField.getText(), fechaNacimientoTextField.getText(), (String) tiposComboBox.getSelectedItem());
+            c = new Contacto(dao.getAllContacto().get(posicion).getNIF(), nombreTextField.getText(), telefonoTextField.getText(), fechaNacimientoTextField.getText(), (String) tiposComboBox.getSelectedItem(), (ImageIcon) foto.getIcon());
 
             correcto = validarContacto(c);
 
